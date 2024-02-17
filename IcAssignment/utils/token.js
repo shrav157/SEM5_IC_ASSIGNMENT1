@@ -1,5 +1,5 @@
-let token = null
+let token = null;
 
-const setToken = (val) => token = val
+const setToken = (val) => token = val;
 
-export {token, setToken}
+module.exports = { token, setToken };

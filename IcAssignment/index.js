@@ -1,6 +1,6 @@
-import express from "express";
-import authRouter from './routers/auth.router.js'
-import blogRouter from './routers/blog.router.js'
+const express = require('express');
+const authRouter=require('./routers/auth.router.js');
+const blogRouter=require('./routers/blog.router.js');
 
 const app = express()
 

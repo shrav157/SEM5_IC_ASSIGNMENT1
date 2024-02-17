@@ -1,12 +1,11 @@
-import { Router } from "express";
-import { createBlog, getAllBlogs, getBlogsByAuthorId } from "../controllers/blog.controller.js";
-import authAuthor from "../middlewares/auth.middleware.js";
-import validate from "../middlewares/validation.middleware.js";
+const express = require("express");
+const router = express.Router();
+const { createBlog, getAllBlogs, getBlogsByAuthorId } = require("../controllers/blog.controller.js");
+const authAuthor = require("../middlewares/auth.middleware.js");
+const validate = require("../middlewares/validation.middleware.js");
 
-const router = Router()
+router.post("/blogs", authAuthor, validate, createBlog);
+router.get("/blogs", getAllBlogs);
+router.get("/blogs/:emailId", getBlogsByAuthorId);
 
-router.post("/blogs", authAuthor, validate, createBlog)
-router.get("/blogs", getAllBlogs)
-router.get("/blogs/:emailId", getBlogsByAuthorId)
-
-export default router
+module.exports = router;

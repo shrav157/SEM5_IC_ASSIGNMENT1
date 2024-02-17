@@ -1,14 +1,13 @@
-import { token } from "../utils/token.js"
+const { token } = require("../utils/token.js");
 
 const authAuthor = async (req, res, next) => {
-  const auhtToken = token
+  const auhtToken = token;
 
-  if (!auhtToken)
-    res.send("author not authorized")
-  else{
-    req.author = auhtToken
-    next()
+  if (!auhtToken) res.send("author not authorized");
+  else {
+    req.author = auhtToken;
+    next();
   }
-}
+};
 
-export default authAuthor
+module.exports = authAuthor;

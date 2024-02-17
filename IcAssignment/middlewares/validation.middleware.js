@@ -1,18 +1,18 @@
 const hasNull = (obj) => {
   for (let key in obj)
     if (obj[key] == null)
-      return true
+      return true;
 
-  return false
-}
+  return false;
+};
 
 const validate = async (req, res, next) => {
-  const body = req.body
+  const body = req.body;
 
   if (hasNull(body))
-    res.send("please enter the values")
+    res.send("please enter the values");
 
-  next()
-}
+  next();
+};
 
-export default validate
+module.exports = validate;

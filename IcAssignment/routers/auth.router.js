@@ -1,11 +1,10 @@
-import { Router } from "express";
-import { authorLogin, authorRegister, getAllAuthers } from "../controllers/auth.controller.js";
-import validate from "../middlewares/validation.middleware.js";
+const express = require("express");
+const router = express.Router();
+const { authorLogin, authorRegister, getAllAuthers } = require("../controllers/auth.controller.js");
+const validate = require("../middlewares/validation.middleware.js");
 
-const router = Router()
+router.post("/register", validate, authorRegister);
+router.post("/login", validate, authorLogin);
+router.get("/author", getAllAuthers);
 
-router.post("/register", validate, authorRegister)
-router.post("/login", validate, authorLogin)
-router.get("/author", getAllAuthers)
-
-export default router
+module.exports = router;
